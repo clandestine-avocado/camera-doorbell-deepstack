@@ -56,11 +56,11 @@ print(topic + message)
 
  
 
-ourClient = mqtt.Client("makerio_mqtt") # Create a MQTT client object
+ourClient = mqtt.Client("pi3a_mqtt") # Create a MQTT client object
 
-ourClient.connect("test.mosquitto.org", 1883) # Connect to the test MQTT broker
+ourClient.connect("192.168.1.237", 1883) # Connect to the HA Mosquitto MQTT broker (or test MQTT broker @ test.mosquitto.org)
 
-ourClient.subscribe("AC_unit") # Subscribe to the topic AC_unit
+ourClient.subscribe("DOORBELL") # Subscribe to the topic DOORBELL
 
 ourClient.on_message = messageFunction # Attach the messageFunction to subscription
 
@@ -74,7 +74,7 @@ ourClient.loop_start() # Start the MQTT client
 
 while(1):
 
-ourClient.publish("AC_unit", "on") # Publish message to MQTT broker
+ourClient.publish("DOORBELL", "on") # Publish message to MQTT broker
 
 time.sleep(1) # Sleep for a second
 ```
