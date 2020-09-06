@@ -27,8 +27,9 @@ Without button press, allow for object (person only) detection:
 
 # MQTT 
 
-**Goal**: Send pictures from Pi 3A (Doorbell) to Home Assistant server running the [Mosquitto MQTT Broker Add-on](https://www.home-assistant.io/docs/mqtt/broker/).
+**Goal**: Send pictures taken by the Pi cam on the Pi 3A (Doorbell) to Home Assistant server running the [Mosquitto MQTT Broker Add-on](https://www.home-assistant.io/docs/mqtt/broker/).
 
+- On the Pi 3A device, install [paho-mqtt](https://pypi.org/project/paho-mqtt/) via the ```pip install paho-mqtt``` command
 
 
 
