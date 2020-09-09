@@ -24,6 +24,11 @@ Without button press, allow for object (person only) detection:
 - [5V Piezo Buzzer (PASSIVE)](https://www.aliexpress.com/item/32974555488.html?spm=a2g0s.9042311.0.0.73504c4dbyl6RU) - Can play tune with PWM
 - [5V Piezo Buzzer (ACTIVE)](https://www.amazon.com/gp/product/B07GL4MBLM/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) - Plays simple tone only
 
+
+# Wiring Diagram
+![image placeholder](https://www.jameco.com/Jameco/workshop/circuitnotes/raspberry_pi_circuit_note_fig2a.jpg)
+
+
 # HTTP POST to push images
 
 Images will be received within HA by the [Push integration](https://www.home-assistant.io/integrations/push/)
