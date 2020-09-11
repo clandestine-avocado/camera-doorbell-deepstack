@@ -29,6 +29,42 @@ Without button press, allow for object (person only) detection:
 ![image placeholder](https://www.jameco.com/Jameco/workshop/circuitnotes/raspberry_pi_circuit_note_fig2a.jpg)
 
 
+
+
+
+# Getting Set up to Write Pictures Directly to Pi
+Install Samba client and server on Pi. Server will not be used; the Pi is acting as the client in this case, but better to have both anyway.
+Install instructions I used are [here](https://www.raspberrypi.org/documentation/remote-access/samba.md)
+
+### To mount a HA directory to Pi directory:
+```sudo mount.cifs //HASSIO9/config/www/doorbell /home/pi/projects/doorbell  -o user=kevin```
+
+...then enter pwd when prompted. This works but **does not survive reboot!**
+
+
+### Setting Up a Perm Mount
+[This page](http://timlehr.com/auto-mount-samba-cifs-shares-via-fstab-on-linux/) has clear instructions that got it to work for me. I still need to figure out how to use credentials
+
+- Navigate to Pi's root: ```cd /```
+- Edit fstab: ```sudo nano /etc/fstab```
+- Enter below configuration, but DO NOT EDIT ANYTHING ELSE!
+
+```
+//HASSIO9/config/www/doorbell 	/home/pi/projects/doorbell 	cifs 	uid=0,username=*****,password=**********,iocharset=utf8,vers=3.0,noperm 0 0
+```
+- Reboot ```sudo reboot```
+
+- Take test picture, store in mounted share folder: ```sudo raspistill -o "/home/pi/projects/doorbell/testpicture.jpg"```
+
+- Verify the picture saved in the right place sucessfully:
+```
+pi@DB3A:~ $ cd /home/pi/projects/doorbell
+pi@DB3A:~/projects/doorbell $ ls
+testpicture.jpg  me.jpg  test1.jpg  testfordoorbellfolder.txt  testremounted1.jpg
+pi@DB3A:~/projects/doorbell $ 
+```
+
+
 # HTTP POST to push images
 
 Images will be received within HA by the [Push integration](https://www.home-assistant.io/integrations/push/)
