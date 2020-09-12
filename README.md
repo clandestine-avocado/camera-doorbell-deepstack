@@ -117,74 +117,13 @@ WantedBy=multi-user.target
 - ```systemctl status home-pi-projects-doorbell.automount```		  to check status
 
 
-# HTTP POST to push images
-
-Images will be received within HA by the [Push integration](https://www.home-assistant.io/integrations/push/)
-
-
-
-
-clandestine avocadoToday at 4:35 PM
-Not sure this fits in other chanels - so throwing this out there in #other. I have been unsuccessful at getting a Samba share from a Raspberry Pi (w/ cam) to my HA instance, which runs on a Windows 10 machine via VirtualBox VM. So, I am looking for alternatives to get pictures (taken by the Pi) over into my HA instance so I can use them in Lovelace, send them with notifications, and maybe do some object/person detection with Tensorflow later.
-
-In HA, I have the standard directories - config, share, addons, ssl, and backup. Keeping in mind that I am a Linux neophyte - Is it possible to mount the /share directory to the Pi somehow - so that I can write the images captured by the Pi cam directly to /share?
-
-If this is not possible - how else could this (the movement of Pi based images to HA) be accomplished?
-
-TinkererToday at 4:35 PM
-Samba should absolutely work, and #add-ons can help you there
-[4:36 PM]
-Alternatively, SSH (SFTP/SCP) works too, but is less neophyte friendly
-
-clandestine avocadoToday at 4:37 PM
-I have Samba working  (as an add on in HA) and that allows me to access via my Windows laptop - but I can't get samba running on the Pi to allow me to see "pi based files" within the HA folders.
-
-TinkererToday at 4:37 PM
-Well, you'd want to mount the shares from HA onto the Pi
-[4:38 PM]
-SCP/SFTP may be easier - depending on what you're doing
-
-clandestine avocadoToday at 4:38 PM
-I also have been able to copy files over via SSH - but I have to enter a password everytime - and eventually this will all be in a py script, if I can figure that part out (Google Fu)
-
-TinkererToday at 4:38 PM
-You want keys 
-[4:38 PM]
-You can create a key without a passphrase, and use that in the script
-
-clandestine avocadoToday at 4:39 PM
-its a doorbell - press button, cam snaps, *move picture to HA
-
-TinkererToday at 4:39 PM
-https://www.home-assistant.io/integrations/push/
-
-clandestine avocadoToday at 4:39 PM
-cool - so keys...and, as far as how to mount the shares from HA onto the Pi -  can you point me to something I can readd up on?
-
-TinkererToday at 4:40 PM
-The push integration is likely your actual answer here
-
-clandestine avocadoToday at 4:41 PM
-ok I'll read up on that. I actually started this thinking motioneyeOS would be the best bet - but backed off that (for a reason I can't recall at the moment!)
-
-TinkererToday at 4:41 PM
-MotionEye is awesome if you're doing motion detection, but for what you've described maybe not a great solution
-
-clandestine avocadoToday at 4:42 PM
-yeah it's pretty sweet. I reseeded my lawn last week and I have a Pi zero doing a timelapse with motioneye right now lol
-[4:43 PM]
-so for the Push cam, all I need to do it HTTP POST the image with the py script, and I should be good (reading quickly here)
-
-TinkererToday at 4:43 PM
-Yup
-
 
 
 
 
 # MQTT 
 
-**Goal**: Send pictures taken by the Pi cam on the Pi 3A (Doorbell) to Home Assistant server running the [Mosquitto MQTT Broker Add-on](https://www.home-assistant.io/docs/mqtt/broker/).
+**Goal**: After picture taken by the Pi cam on the Pi 3A (Doorbell), send a simple message to Home Assistant server running the [Mosquitto MQTT Broker Add-on](https://www.home-assistant.io/docs/mqtt/broker/).
 
 ### Install and Testing Connection:
 - On the Pi 3A device, install [paho-mqtt](https://pypi.org/project/paho-mqtt/) via the ```pip install paho-mqtt``` command
@@ -193,10 +132,9 @@ Yup
 - Run testing_mqtt_con_to_HA.py and confirm DOORBELL topic is received
 
 
-
-
-
 ```
+#testing_mqtt_con_to_HA.py
+
 import paho.mqtt.client as mqtt # Import the MQTT library
 
 import time # The time library is useful for delays
