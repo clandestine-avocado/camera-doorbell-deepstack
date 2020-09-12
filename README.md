@@ -177,3 +177,15 @@ ourClient.publish("DOORBELL", "on") # Publish message to MQTT broker
 
 time.sleep(1) # Sleep for a second
 ```
+
+
+
+# Add Passive Buzzer
+
+I followed [this](https://peppe8o.com/use-passive-buzzer-with-raspberry-pi-and-python/) intro tutorial, then modified for my purposes.
+
+
+
+
+
+
