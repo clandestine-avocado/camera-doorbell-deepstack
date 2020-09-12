@@ -1,12 +1,12 @@
 # doorbell
 
-Purpose:
+Project Goals:
 Allow for doorbell press to:
-- capture still image
-- record short video
-- sound a buzzer so user gets audible feedback
-- send images over MQTT to Home Assistant Node-Red
-- Get push notifications (via Telegram?)
+- Capture still image and Record 20s video
+- Sound a buzzer so doorbell user gets audible feedback of button press
+- Send "doorbell/pressed" MQTT message to Home Assistant
+- Node red automation listening for MQTT message
+- Send push notifications (via Telegram?)
 
 Without button press, allow for object (person only) detection:
 - Tensorflow ([Tensorflow HA Integration](https://www.home-assistant.io/integrations/tensorflow/) | [Install Page](https://www.tensorflow.org/install/)) 
@@ -30,20 +30,24 @@ Without button press, allow for object (person only) detection:
 
 
 
+# Capture still image and Record 20s video
 
 
-# Getting Set up to Write Pictures Directly to Pi
-Install Samba client and server on Pi. Server will not be used; the Pi is acting as the client in this case, but better to have both anyway.
+<insert python script>
+
+### Getting Set up to Write Images and Video Directly to Home Assistant Directory
+Install Samba client AND server on Pi. The server function will probably not be used from the Pi. In this set up, the Pi is acting as the client and the [Samba add-on in Home Assistant](https://www.home-assistant.io/getting-started/configuration/#editing-configuration-via-sambawindows-networking) is acting as the server, but better to have both anyway.
 Install instructions I used are [here](https://www.raspberrypi.org/documentation/remote-access/samba.md)
 
 ### To mount a HA directory to Pi directory:
 ```sudo mount.cifs //HASSIO9/config/www/doorbell /home/pi/projects/doorbell  -o user=kevin```
+- Server: //HASSIO9/config/www/doorbell is the host name + folder path
+- Client: /home/pi/projects/doorbell is the client side + folder path
+- Run the cmd and enter pwd when prompted. This works to mount mannually but **does not survive reboot!**
+- To survive reboot, you must add a permenant mount; so far I have been unscessful
 
-...then enter pwd when prompted. This works but **does not survive reboot!**
-
-
-### Setting Up a Perm Mount
-[This page](http://timlehr.com/auto-mount-samba-cifs-shares-via-fstab-on-linux/) has clear instructions that got it to work for me. I still need to figure out how to use credentials
+### Setting Up a Perm Mount [fstab] method
+[This page](http://timlehr.com/auto-mount-samba-cifs-shares-via-fstab-on-linux/) has pretty clear instructions that got it working for me. I still need to figure out how to use credentials, however.
 
 - Navigate to Pi's root: ```cd /```
 - Edit fstab: ```sudo nano /etc/fstab```
@@ -63,6 +67,54 @@ pi@DB3A:~/projects/doorbell $ ls
 testpicture.jpg  me.jpg  test1.jpg  testfordoorbellfolder.txt  testremounted1.jpg
 pi@DB3A:~/projects/doorbell $ 
 ```
+
+### Setting Up a Perm Mount [systemd] method
+
+Using [this guide](https://anteru.net/blog/2019/automatic-mounts-using-systemd/) I did everything between the X's, it worked once, then fails to start. Probably a password/config issue in home-pi-projects-doorbell.mount file, but I can't figure it out. Therefore, to mount after boot, I'll just boot then run ```sudo mount -a``` manually for now.
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- In ```/etc/systemd/system``` create a file named ```home-pi-projects-doorbell.mount```
+- ```cd /etc/systemd/system```
+- ```sudo nano home-pi-projects-doorbell.mount```
+
+```
+==========================================
+[Unit]
+Description=myshare mount
+
+[Mount]
+What=//HASSIO9/config/www/doorbell
+Where=/home/pi/projects/doorbell
+Type=cifs
+Options=rw,file_mode=0700,dir_mode=0700,uid=1000,user=********,password=********
+DirectoryMode=0700
+[Install]
+WantedBy=multi-user.target
+==========================================
+```
+
+
+- Also in ```/etc/systemd/system``` create a file named ```home-pi-projects-doorbell.automount```
+- ```sudo nano home-pi-projects-doorbell.automount```
+```
+==========================================
+[Unit]
+Description=myshare automount
+
+[Automount]
+Where=/home/pi/projects/doorbell
+
+[Install]
+WantedBy=multi-user.target
+==========================================
+```
+
+### This [home-pi-projects-doorbell.automount] is the unit we want to enable and start automatically, so we need to perform the following steps:
+
+- ```systemctl daemon-reload```                            					to reload the configuration
+- ```systemctl start home-pi-projects-doorbell.automount```   		to start the unit – so we can use it right away
+- ```systemctl enable home-pi-projects-doorbell.automount``` 	 	to enable the auto-start of the unit
+- ```systemctl status home-pi-projects-doorbell.automount```		  to check status
 
 
 # HTTP POST to push images
