@@ -26,7 +26,7 @@ Without button press, allow for object (person only) detection:
 
 
 # Wiring Diagram
-![image placeholder](https://imgur.com/a/GrOVQtg)
+
 
 
 
