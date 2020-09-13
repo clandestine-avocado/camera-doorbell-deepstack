@@ -1,7 +1,8 @@
 # Doorbell
 
 ### To Buy:
-- connectors for button, then resolder
+- Connectors for button, then resolder
+- Liquid elec tape
 - Stand-off kit
 - Heat sinks (5x)
 - return screw driver kit
