@@ -123,13 +123,16 @@ WantedBy=multi-user.target
 
 # MQTT 
 
-**Goal**: After picture taken by the Pi cam on the Pi 3A (Doorbell), send a simple message to Home Assistant server running the [Mosquitto MQTT Broker Add-on](https://www.home-assistant.io/docs/mqtt/broker/).
+**Goal**: After picture taken by the Pi cam on the Pi 3A (Doorbell), send a simple message to Home Assistant server running the [Mosquitto MQTT Broker Add-on](https://www.home-assistant.io/docs/mqtt/broker/). This will serve as a trigger for notifications in Home Assistant. This could be done with the [Folder Watcher integration](https://www.home-assistant.io/integrations/folder_watcher/)  within Home Assistant, but I was unable to get that working properly.
 
-### Install and Testing Connection:
+### Install Paho-MQTT and Testing Connection to HA:
 - On the Pi 3A device, install [paho-mqtt](https://pypi.org/project/paho-mqtt/) via the ```pip install paho-mqtt``` command
 - Create [testing_mqtt_con_to_HA.py](https://raw.githubusercontent.com/clandestine-avocado/doorbell/master/mqtt/testing_mqtt_con_to_HA.py?token=ANPVX4PEY5A46BDX22IIAIC7KTDMS) on the Pi 3A
 - Subscribe to "DOORBELL" topic on the HA Mosquitto broker.
 - Run testing_mqtt_con_to_HA.py and confirm DOORBELL topic is received
+
+https://raw.githubusercontent.com/clandestine-avocado/doorbell/master/mqtt/testing_mqtt_con_to_HA.py?token=ANPVX4PEY5A46BDX22IIAIC7KTDMS
+
 
 
 ```python
@@ -182,7 +185,9 @@ time.sleep(1) # Sleep for a second
 
 # Add Passive Buzzer
 ![image placeholder](https://i0.wp.com/peppe8o.com/wp-content/uploads/2020/07/Raspberry-PI-passive-buzzer-wiring.jpg?w=826&ssl=1)
-I followed [this](https://peppe8o.com/use-passive-buzzer-with-raspberry-pi-and-python/) intro tutorial, then modified for my purposes.
+
+[This](https://peppe8o.com/use-passive-buzzer-with-raspberry-pi-and-python/) intro tutorial got me started to make sure my buzzer worked. It was then was modified later for my purposes.
+
 ```python
 # Import required libraries
 import sys
@@ -205,7 +210,7 @@ buzzer.start(10) # Set dutycycle to 10
 time.sleep(1)
 
 GPIO.cleanup()
-sys.exit()
+sys.exit() # quits Python - needs to be removed once integrated into the main doorbell script - which needs to run all the time.
 
 # Please find below some addictional commands to change frequency and
 # dutycycle without stopping buzzer, or to stop buzzer:
