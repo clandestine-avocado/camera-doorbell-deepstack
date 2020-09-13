@@ -186,6 +186,64 @@ I followed [this](https://peppe8o.com/use-passive-buzzer-with-raspberry-pi-and-p
 
 
 
+# Final Python Script, Combined:
+```python
+
+import RPi.GPIO as GPIO
+import time
+import picamera
+import datetime as dt
+import sys
+import paho.mqtt.client as mqtt # import the MQTT library
 
 
+#def MQTT messagefunction here
+def messageFunction (client, userdata, message):
+    topic = str(message.topic)
+    message = str(message.payload.decode("utf-8"))
+    print("MQTT Topic: " + topic + "/" + message)
+
+MQTTClient=mqtt.Client("pi3a_mqtt") # Create a MQTT client object
+MQTTClient.username_pw_set(username="kevinmqtt", password="kevinmqtt") #Set a username and optionally a password for broker authentication. Must be called be$
+MQTTClient.connect("192.168.1.237", 1883) # Connect to the HA Mosquitto MQTT broker (or test MQTT broker @ test.mosquitto.org)
+MQTTClient.subscribe("DOORBELL") # Subscribe to the topic DOORBELL
+MQTTClient.on_message = messageFunction # Attach the messageFunction to subscription
+MQTTClient.loop_start() # Start the MQTT client
+
+GPIO.setmode(GPIO.BCM)
+buzzerPIN = 14
+buttonPIN = 18
+GPIO.setup(14, GPIO.OUT)
+GPIO.setup(buttonPIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+
+# define PWM signal and start it on trigger PIN
+buzzer = GPIO.PWM(buzzerPIN, 3000) # Set frequency to 1 Khz
+
+
+
+
+while True:
+    input_state = GPIO.input(buttonPIN)
+    if input_state == True:
+        print('Button Pressed')
+        MQTTClient.publish("DOORBELL", "on") # Publish message to MQTT broker
+        buzzer.start(10) # Set dutycycle to 10
+        time.sleep(0.2)
+        with picamera.PiCamera() as camera:
+            camera.resolution = (800, 600)
+            camera.annotate_background = picamera.Color('black')
+            camera.annotate_text = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            camera.start_preview()
+            camera.capture('doorbell.jpg', use_video_port=True)
+            # camera.start_recording('doorbell.h264')
+            # camera.wait_recording(20)
+        time.sleep(.5)
+        buzzer.stop()
+
+GPIO.cleanup()
+# sys.exit()
+
+
+```
 
