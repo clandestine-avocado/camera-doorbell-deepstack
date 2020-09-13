@@ -2,6 +2,8 @@
 
 ### To Buy:
 - connectors for button, then resolder
+- Stand-off kit
+- Heat sinks (5x)
 - return screw driver kit
 - Small pry bar kit to split Kindle Fire
 
