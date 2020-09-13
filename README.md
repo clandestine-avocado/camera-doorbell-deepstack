@@ -1,6 +1,11 @@
 # Doorbell
 
-Project Goals:
+### To Buy:
+- connectors for button, then resolder
+- return screw driver kit
+- Small pry bar kit to split Kindle Fire
+
+### Project Goals:
 Allow for doorbell press to:
 - Capture still image and Record 20s video
 - Sound a buzzer so doorbell user gets audible feedback of button press
@@ -8,7 +13,7 @@ Allow for doorbell press to:
 - Node red automation listening for MQTT message
 - Send push notifications (via Telegram?)
 
-Without button press, allow for object (person only) detection:
+### Without button press, allow for object (person only) detection:
 - Tensorflow ([Tensorflow HA Integration](https://www.home-assistant.io/integrations/tensorflow/) | [Install Page](https://www.tensorflow.org/install/)) 
 - Tensorflow Lite
 - DOODS ([DOODS HA Integration](https://www.home-assistant.io/integrations/doods/) | [DOODS in GIT](https://github.com/snowzach/doods))
