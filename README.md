@@ -1,4 +1,4 @@
-# doorbell
+# Doorbell
 
 Project Goals:
 Allow for doorbell press to:
@@ -26,7 +26,7 @@ Without button press, allow for object (person only) detection:
 
 
 # Wiring Diagram
-![image placeholder](https://www.jameco.com/Jameco/workshop/circuitnotes/raspberry_pi_circuit_note_fig2a.jpg)
+![image placeholder](https://imgur.com/a/GrOVQtg)
 
 
 
