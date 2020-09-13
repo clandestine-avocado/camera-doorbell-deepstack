@@ -132,7 +132,7 @@ WantedBy=multi-user.target
 - Run testing_mqtt_con_to_HA.py and confirm DOORBELL topic is received
 
 
-```
+```python
 #testing_mqtt_con_to_HA.py
 
 import paho.mqtt.client as mqtt # Import the MQTT library
@@ -181,9 +181,40 @@ time.sleep(1) # Sleep for a second
 
 
 # Add Passive Buzzer
-
+![image placeholder](https://i0.wp.com/peppe8o.com/wp-content/uploads/2020/07/Raspberry-PI-passive-buzzer-wiring.jpg?w=826&ssl=1)
 I followed [this](https://peppe8o.com/use-passive-buzzer-with-raspberry-pi-and-python/) intro tutorial, then modified for my purposes.
+```python
+# Import required libraries
+import sys
+import RPi.GPIO as GPIO
+import time
 
+# Set trigger PIN according with your cabling
+buzzerPIN = 14
+
+# Set PIN to output
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(buzzerPIN,GPIO.OUT)
+
+# define PWM signal and start it on trigger PIN
+buzzer = GPIO.PWM(buzzerPIN, 1000) # Set frequency to 1 Khz
+buzzer.start(10) # Set dutycycle to 10
+
+# this row makes buzzer work for 1 second, then
+# cleanup will free PINS and exit will terminate code execution
+time.sleep(1)
+
+GPIO.cleanup()
+sys.exit()
+
+# Please find below some addictional commands to change frequency and
+# dutycycle without stopping buzzer, or to stop buzzer:
+#
+# buzzer.ChangeDutyCycle(10)
+# buzzer.ChangeFrequency(1000)
+# buzzer.stop()
+
+```
 
 
 # Final Python Script, Combined:
