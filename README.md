@@ -2,6 +2,7 @@
 
 ### To Buy:
 - Connectors for button, then resolder
+- Flux | Flux Brush?
 - Liquid elec tape
 - Stand-off kit
 - Heat sinks (5x)
