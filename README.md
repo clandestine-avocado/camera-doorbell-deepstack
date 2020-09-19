@@ -229,7 +229,7 @@ sys.exit() # quits Python - needs to be removed once integrated into the main do
 ```
 
 
-# Final Python Script, Combined:
+# Final Python Script for Taking a Picture, Sharing the picture, and pushing MQTT to HA, Combined:
 ```python
 
 import RPi.GPIO as GPIO
@@ -290,3 +290,5 @@ GPIO.cleanup()
 
 ```
 
+# Installing "Motion" as Standalone (not MotionEyeOS)
+Tutorial start point [here](https://learn.adafruit.com/cloud-cam-connected-raspberry-pi-security-camera/dropbox-sync#pi-camera-v4l2-kernel-module-1611979-38)
