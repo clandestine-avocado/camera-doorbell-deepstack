@@ -291,4 +291,8 @@ GPIO.cleanup()
 ```
 
 # Installing "Motion" as Standalone (not MotionEyeOS)
-Tutorial start point [here](https://learn.adafruit.com/cloud-cam-connected-raspberry-pi-security-camera/dropbox-sync#pi-camera-v4l2-kernel-module-1611979-38)
+- Tutorial start point [here](https://learn.adafruit.com/cloud-cam-connected-raspberry-pi-security-camera/dropbox-sync#pi-camera-v4l2-kernel-module-1611979-38), followed exactly, except for the Dropbox uploading, since I want to do other things (Tensorflow?) with the images.
+- Stupid config question asked [here](https://github.com/Motion-Project/motion/issues/1205)
+- Config Help [here](https://motion-project.github.io/4.1.1/motion_guide.html#output_pictures)
+
+
