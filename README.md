@@ -296,3 +296,8 @@ GPIO.cleanup()
 - Config Help [here](https://motion-project.github.io/4.1.1/motion_guide.html#output_pictures)
 
 
+HTTP requests to Motion via Webcontrol_parms:
+ https://motion-project.github.io/motion_config.html#webcontrol_parms
+CURL with Python: https://www.kite.com/python/answers/how-to-use-curl-in-python
+
+
