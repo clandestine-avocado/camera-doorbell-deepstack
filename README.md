@@ -230,7 +230,10 @@ sys.exit() # quits Python - needs to be removed once integrated into the main do
 ```
 
 
-# Final Python Script for Taking a Picture, Sharing the picture, and pushing MQTT to HA, Combined:
+# Python Script for Taking a Picture, Sharing the picture, and pushing MQTT to HA, Combined:
+
+This script functions fine with the setup so far; however I would like to have motion detection and object recocnition running when the doorbell is *not* being pressed. Eventually, instead of using the ```camera.capture``` funtion to take snapshots, I will integrate Motion and call a snapshot via a HTTP request. 
+
 ```python
 
 import RPi.GPIO as GPIO
