@@ -296,8 +296,27 @@ GPIO.cleanup()
 - Config Help [here](https://motion-project.github.io/4.1.1/motion_guide.html#output_pictures)
 
 
-HTTP requests to Motion via Webcontrol_parms:
- https://motion-project.github.io/motion_config.html#webcontrol_parms
-CURL with Python: https://www.kite.com/python/answers/how-to-use-curl-in-python
+MakerHTTP requests to Motion via [Webcontrol_parms](https://motion-project.github.io/motion_config.html#webcontrol_parms)
 
+```
+http://db3a:8080/0/config/list                                  #Lists all the configuration values for the camera.
+http://db3a:8080/0/config/set?{parm}={value1}                   #Set the value for the requested parameter
+http://db3a:8080/0/config/get?query={parm}                      #Return the value currently set for the parameter.
+http://db3a:8080/0/config/write                                 #Write the current parameters to the file.
+http://db3a:8080/0/detection/status                             #Return the current status of the camera.
+http://db3a:8080/0/detection/connection                         #Return the connection status of the camera.
+http://db3a:8080/0/detection/start                              #Start or resume motion detection.
+http://db3a:8080/0/detection/pause                              #Pause the motion detection.
+http://db3a:8080/0/action/eventstart                            #Trigger a new event.
+http://db3a:8080/0/action/eventend                              #Trigger the end of a event.
+http://db3a:8080/0/action/snapshot                              #Create a snapshot
+http://db3a:8080/0/action/restart                               #Shutdown and restart Motion
+http://db3a:8080/0/action/quit                                  #Close all connections to the camera
+http://db3a:8080/0/action/end                                   #Entirely shutdown the Motion application
+```
+
+
+
+CURL in Python with [Requests](https://www.kite.com/python/answers/how-to-use-curl-in-python)
+Other Python example to [activate Motion](https://github.com/ccrisan/motioneyeos/issues/842)
 
