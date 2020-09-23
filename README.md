@@ -1,23 +1,28 @@
 # Doorbell
 
 ### Common Commands:
+Mount HASSIO drive to DB3A:
 ```
 sudo mount -a
 ```
+List mounted drives:
 ```
 sudo mount -l
 ```
 ```
 cd projects/doorbell
 ```
+Run main doorbell script manually:
 ```
 python projects/doorbell/db4.py
 ```
+View/edit Motion config:
 ```
 sudo nano /etc/motion/motion.conf
 ```
+View Motion Log:
 ```
-/var/log/motion/motion.log
+sudo nano /var/log/motion/motion.log
 ```
 
 
