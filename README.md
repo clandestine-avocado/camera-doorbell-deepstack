@@ -349,3 +349,7 @@ http://db3a:8080/0/action/end                                   #Entirely shutdo
 CURL in Python with [Requests](https://www.kite.com/python/answers/how-to-use-curl-in-python)
 Other Python example to [activate Motion](https://github.com/ccrisan/motioneyeos/issues/842)
 
+
+
+# TensorFlowLite
+I used [this guide](https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md) to get started
