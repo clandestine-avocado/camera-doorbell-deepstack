@@ -1,13 +1,33 @@
 # Doorbell
 
-### To Buy:
-- Connectors for button, then resolder
-- Flux | Flux Brush?
-- Liquid elec tape
-- Stand-off kit
-- Heat sinks (5x)
-- return screw driver kit
-- Small pry bar kit to split Kindle Fire
+### Common Commands:
+```
+sudo mount -a
+```
+```
+sudo mount -l
+```
+```
+cd projects/doorbell
+```
+```
+python projects/doorbell/db4.py
+```
+```
+sudo nano /etc/motion/motion.conf
+```
+```
+/var/log/motion/motion.log
+```
+
+
+
+
+
+
+
+
+
 
 ### Project Goals:
 Allow for doorbell press to:
