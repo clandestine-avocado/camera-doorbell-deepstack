@@ -72,7 +72,32 @@ Allow for doorbell press to:
 
 ### Getting Set up to Write Images and Video Directly to Home Assistant Directory
 Install Samba client AND server on Pi. The server function will probably not be used from the Pi. In this set up, the Pi is acting as the client and the [Samba add-on in Home Assistant](https://www.home-assistant.io/getting-started/configuration/#editing-configuration-via-sambawindows-networking) is acting as the server, but better to have both anyway.
-Install instructions I used are [here](https://www.raspberrypi.org/documentation/remote-access/samba.md)
+
+![Imgur](https://i.imgur.com/brokkfL.png)
+
+
+
+
+- Install instructions for setting up Samba on the Pi are [here](https://www.raspberrypi.org/documentation/remote-access/samba.md)
+- Update first via `sudo apt update`
+- Install Samba client and cifs utilities via `sudo apt install samba samba-common-bin smbclient cifs-utils`
+
+Note: If all you want to do is be able to read/write to directories shared out by the Samba add on from the HA server, you can stop here and skip to mounting the HA directories to the Pi. However, if you also want to share [serve] out directories FROM the Pi, do the following: 
+
+- Navigate to the configuration file for Samba via `cd /etc/samba/smb.conf`
+- Edit the file by running `sudo nano /etc/samba/smb.conf'
+
+At the bottom of the file, add the following lines:
+
+[sambashare] # This is the name that will appear under \\your Pi IP\XXXX i.e. `\\192.168.1.223\sambashare`
+    comment = My directory from the Pi
+    path = /home/pi/sambashare
+    read only = no
+    browsable = yes
+
+
+
+
 
 ### To mount a HA directory to Pi directory:
 ```sudo mount.cifs //HASSIO9/config/www/doorbell /home/pi/projects/doorbell  -o user=kevin```
