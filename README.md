@@ -88,13 +88,13 @@ Note: If all you want to do is be able to read/write to directories shared out b
 - Edit the file by running `sudo nano /etc/samba/smb.conf'
 
 At the bottom of the file, add the following lines:
-
+```
 [sambashare] # This is the name that will appear under \\your Pi IP\XXXX i.e. `\\192.168.1.223\sambashare`
-    comment = My directory from the Pi
-    path = /home/pi/sambashare
-    read only = no
-    browsable = yes
-
+    comment = My directory from the Pi  # Just a simple description
+    path = /home/pi/sambashare          # Absolute file path to share out from Pi
+    read only = no                      # Allows write permissions
+    browsable = yes                     # Makes discoverable on network
+```
 
 
 
