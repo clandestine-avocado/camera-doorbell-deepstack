@@ -281,9 +281,9 @@ sys.exit() # quits Python - needs to be removed once integrated into the main do
 
 
 # Python Script for Taking a Picture, Sharing the picture, and pushing MQTT to HA, Combined:
-[x] Take a picture
-[x] Save the picture to mounted HA directory
-[x] Publish MQTT message to Mosquito Broker on HA
+- [x] Take a picture
+- [x] Save the picture to mounted HA directory
+- [x] Publish MQTT message to Mosquito Broker on HA
 
 This script functions fine with the setup so far; however I would like to have motion detection and object recocnition running when the doorbell is *not* being pressed. Eventually, instead of using the ```camera.capture``` funtion to take snapshots, I will integrate Motion and call a snapshot via a HTTP request. 
 
