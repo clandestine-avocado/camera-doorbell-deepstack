@@ -79,8 +79,8 @@ Install Samba client AND server on Pi. The server function will probably not be 
 
 
 - Install instructions for setting up Samba on the Pi are [here](https://www.raspberrypi.org/documentation/remote-access/samba.md)
-- Update first via `sudo apt update`
-- Install Samba client and cifs utilities via `sudo apt install samba samba-common-bin smbclient cifs-utils`
+    - Update first via `sudo apt update`
+    - Install Samba client and cifs utilities via `sudo apt install samba samba-common-bin smbclient cifs-utils`
 
 Note: If all you want to do is be able to read/write to directories shared out by the Samba add on from the HA server, you can stop here and skip to mounting the HA directories to the Pi. However, if you also want to share [serve] out directories FROM the Pi, do the following: 
 
