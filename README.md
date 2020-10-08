@@ -16,6 +16,10 @@ Run main doorbell script manually:
 ```
 python projects/doorbell/db4.py
 ```
+Start Motion app:
+```
+sudo start motion -n
+```
 View/edit Motion config:
 ```
 sudo nano /etc/motion/motion.conf
@@ -372,7 +376,10 @@ http://db3a:8080/0/action/quit                                  #Close all conne
 http://db3a:8080/0/action/end                                   #Entirely shutdown the Motion application
 ```
 
-
+### Start Motion app:
+```
+sudo start motion -n
+```
 
 CURL in Python with [Requests](https://www.kite.com/python/answers/how-to-use-curl-in-python)
 Other Python example to [activate Motion](https://github.com/ccrisan/motioneyeos/issues/842)
