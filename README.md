@@ -53,10 +53,10 @@ Allow for doorbell press to:
 - Send push notifications (via Telegram?)
 
 ### Without button press, allow for object (person only) detection:
-- Tensorflow ([Tensorflow HA Integration](https://www.home-assistant.io/integrations/tensorflow/) | [Install Page](https://www.tensorflow.org/install/)) 
-- Tensorflow Lite
-- DOODS ([DOODS HA Integration](https://www.home-assistant.io/integrations/doods/) | [DOODS in GIT](https://github.com/snowzach/doods))
-- Other software?
+- ~~Tensorflow ([Tensorflow HA Integration](https://www.home-assistant.io/integrations/tensorflow/) | [Install Page](https://www.tensorflow.org/install/)) ~~
+- ~~Tensorflow Lite~~
+- ~~DOODS ([DOODS HA Integration](https://www.home-assistant.io/integrations/doods/) | [DOODS in GIT](https://github.com/snowzach/doods))~~
+- Local [Deepstack server](https://python.deepstack.cc/) paired with [@robmarkcole's Deepstack integration](https://github.com/robmarkcole/HASS-Deepstack-object)
 
 
 
@@ -68,6 +68,7 @@ Allow for doorbell press to:
 - [5V Piezo Buzzer (PASSIVE)](https://www.aliexpress.com/item/32974555488.html?spm=a2g0s.9042311.0.0.73504c4dbyl6RU) - Can play tune with PWM
 - [5V Piezo Buzzer (ACTIVE)](https://www.amazon.com/gp/product/B07GL4MBLM/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) - Plays simple tone only
 - [Zulkit Project Box](https://www.amazon.com/gp/product/B07RTYYHK7/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) - 3.94 x 2.68 x 1.97 inch
+- Dell Optiplex 7010 USFF (16GB RAM) - Run's multiple VM's, including HASSIO and an instance of Xubuntu 
 
 
 # Wiring Diagram
