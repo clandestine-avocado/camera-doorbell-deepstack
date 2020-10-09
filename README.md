@@ -61,7 +61,7 @@ Allow for doorbell press to:
 - Send push notifications (via Telegram?)
 
 ### Without button press, allow for object (person only) detection:
-- ~~Tensorflow ([Tensorflow HA Integration](https://www.home-assistant.io/integrations/tensorflow/) | [Install Page](https://www.tensorflow.org/install/)) ~~
+- ~~Tensorflow ([Tensorflow HA Integration](https://www.home-assistant.io/integrations/tensorflow/) | [Install Page](https://www.tensorflow.org/install/))~~
 - ~~Tensorflow Lite~~
 - ~~DOODS ([DOODS HA Integration](https://www.home-assistant.io/integrations/doods/) | [DOODS in GIT](https://github.com/snowzach/doods))~~
 - Local [Deepstack server](https://python.deepstack.cc/) paired with [@robmarkcole's Deepstack integration](https://github.com/robmarkcole/HASS-Deepstack-object)
