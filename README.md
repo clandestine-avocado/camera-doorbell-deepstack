@@ -1,4 +1,17 @@
 # Doorbell
+<details><summary>CLICK ME</summary>
+<p>
+
+#### yes, even hidden code blocks!
+
+```python
+print("hello world!")
+```
+
+</p>
+</details>
+
+
 | Component                                                         	| System        	| Function                                                                                                                                                                                                                                                                                                      	| Commands                                                                                                                                                                                                                                                                                       	|
 |-------------------------------------------------------------------	|---------------	|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | [Motion App](https://motion-project.github.io/motion_config.html) 	| Pi3A          	| Detect motion events for Deepstack processing Take snapshots from Doorbell button presses                                                                                                                                                                                                                     	| Mount HASSIO directory: ```sudo mount -a``` Verify mount worked: ```sudo mount -l``` Manually start via ```sudo motion start -n``` Also can be set to run as daemon (to do) Set/Edit config: ```sudo nano etc/motion/motion.conf``` View Motion Log: ```sudo nano var/log/motion/motion.log``` 	|
