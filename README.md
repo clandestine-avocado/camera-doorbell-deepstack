@@ -1,15 +1,6 @@
 # Doorbell
-<details><summary>CLICK ME</summary>
+<details><summary>Systems & Common Commands</summary>
 <p>
-
-#### yes, even hidden code blocks!
-
-```python
-print("hello world!")
-```
-
-</p>
-</details>
 
 
 | Component                                                         	| System        	| Function                                                                                                                                                                                                                                                                                                      	| Commands                                                                                                                                                                                                                                                                                       	|
@@ -47,6 +38,10 @@ View Motion Log:
 ```
 sudo nano /var/log/motion/motion.log
 ```
+
+
+</p>
+</details>
 
 
 
