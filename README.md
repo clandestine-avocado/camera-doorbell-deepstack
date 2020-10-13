@@ -232,6 +232,8 @@ WantedBy=multi-user.target
 - Run testing_mqtt_con_to_HA.py and confirm DOORBELL topic is received
 
 
+<details><summary>Clisk to Expand MQTT test script...</summary>
+<p>
 
 ```python
 #testing_mqtt_con_to_HA.py
@@ -278,6 +280,9 @@ ourClient.publish("DOORBELL", "on") # Publish message to MQTT broker
 
 time.sleep(1) # Sleep for a second
 ```
+
+</p>
+</details>
 
 
 
