@@ -1,4 +1,12 @@
 # Doorbell
+
+<details><summary>Dummy Expansion Code</summary>
+<p>
+Put stuff here
+</p>
+</details>
+
+
 <details><summary>Systems & Common Commands</summary>
 <p>
 
