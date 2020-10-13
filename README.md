@@ -229,10 +229,10 @@ WantedBy=multi-user.target
 - On the Pi 3A device, install [paho-mqtt](https://pypi.org/project/paho-mqtt/) via the ```pip install paho-mqtt``` command
 - Create [testing_mqtt_con_to_HA.py](https://raw.githubusercontent.com/clandestine-avocado/doorbell/master/mqtt/testing_mqtt_con_to_HA.py?token=ANPVX4LI7RVCVN5HWXXXSOS7LYLVK) on the Pi 3A
 - Subscribe to "DOORBELL" topic on the HA Mosquitto broker.
-- Run testing_mqtt_con_to_HA.py and confirm DOORBELL topic is received
+- Run `testing_mqtt_con_to_HA.py` and confirm DOORBELL topic is received by HA Mosquitto broker
 
 
-<details><summary>Clisk to Expand MQTT test script...</summary>
+<details><summary>*Click to Expand MQTT test script...*</summary>
 <p>
 
 ```python
