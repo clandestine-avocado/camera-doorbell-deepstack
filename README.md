@@ -124,8 +124,8 @@ At the bottom of the file, add the following lines:
 ```
 
 
-
-<details><summary>### To mount a HA directory to Pi directory:</summary>
+### Mounting Directories (Temp and Perm)
+<details><summary>Temp Mount a HA directory to Pi directory:</summary>
 <p>
     
 ```sudo mount.cifs //HASSIO9/config/www/doorbell /home/pi/projects/doorbell  -o user=kevin```
@@ -139,8 +139,8 @@ At the bottom of the file, add the following lines:
 </details>
 
 
-
-### Setting Up a Perm Mount [fstab] method
+<details><summary>Perm Mount: fstab method:</summary>
+<p>
 [This page](http://timlehr.com/auto-mount-samba-cifs-shares-via-fstab-on-linux/) has pretty clear instructions that got it working for me. I still need to figure out how to use credentials, however.
 
 - Navigate to Pi's root: ```cd /```
@@ -161,8 +161,12 @@ pi@DB3A:~/projects/doorbell $ ls
 testpicture.jpg  me.jpg  test1.jpg  testfordoorbellfolder.txt  testremounted1.jpg
 pi@DB3A:~/projects/doorbell $ 
 ```
+</p>
+</details>
 
-### Setting Up a Perm Mount [systemd] method
+
+<details><summary>Perm Mount: systemd method:</summary>
+<p>
 
 Using [this guide](https://anteru.net/blog/2019/automatic-mounts-using-systemd/) I did everything between the X's, it worked once, then fails to start. Probably a password/config issue in home-pi-projects-doorbell.mount file, but I can't figure it out. Therefore, to mount after boot, I'll just boot then run ```sudo mount -a``` manually for now.
 
@@ -212,6 +216,8 @@ WantedBy=multi-user.target
 
 
 
+</p>
+</details>
 
 
 
