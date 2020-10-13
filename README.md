@@ -125,13 +125,17 @@ At the bottom of the file, add the following lines:
 
 
 
-
-### To mount a HA directory to Pi directory:
+<details><summary>### To mount a HA directory to Pi directory:</summary>
+<p>
 ```sudo mount.cifs //HASSIO9/config/www/doorbell /home/pi/projects/doorbell  -o user=kevin```
 - Server: //HASSIO9/config/www/doorbell is the host name + folder path
 - Client: /home/pi/projects/doorbell is the client side + folder path
 - Run the cmd and enter pwd when prompted. This works to mount mannually but **does not survive reboot!**
 - To survive reboot, you must add a permenant mount; so far I have been unscessful
+</p>
+</details>
+
+
 
 ### Setting Up a Perm Mount [fstab] method
 [This page](http://timlehr.com/auto-mount-samba-cifs-shares-via-fstab-on-linux/) has pretty clear instructions that got it working for me. I still need to figure out how to use credentials, however.
