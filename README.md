@@ -1,6 +1,6 @@
-# Doorbell
+# Doorbell - A Work in Progress
 
-<details><summary>Dummy Expansion Code</summary>
+<details><summary>Dummy Expansion Markup</summary>
 <p>
 Put stuff here
 </p>
