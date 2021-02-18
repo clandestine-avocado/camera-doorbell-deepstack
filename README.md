@@ -349,7 +349,7 @@ def messageFunction (client, userdata, message):
     print("MQTT Topic: " + topic + "/" + message)
 
 MQTTClient=mqtt.Client("pi3a_mqtt") # Create a MQTT client object
-MQTTClient.username_pw_set(username="kevinmqtt", password="kevinmqtt") #Set a username and optionally a password for broker authentication. Must be called be$
+MQTTClient.username_pw_set(username="YOUR-MQTT-USERNAME", password="YOUR-MQTT-PASSWORD") #Set a username and optionally a password for broker authentication. Must be called be$
 MQTTClient.connect("192.168.1.237", 1883) # Connect to the HA Mosquitto MQTT broker (or test MQTT broker @ test.mosquitto.org)
 MQTTClient.subscribe("DOORBELL") # Subscribe to the topic DOORBELL
 MQTTClient.on_message = messageFunction # Attach the messageFunction to subscription
