@@ -223,7 +223,7 @@ WantedBy=multi-user.target
 
 # MQTT 
 
-**Goal**: After picture taken by the Pi cam on the Pi 3A (Doorbell), send a simple message to Home Assistant server running the [Mosquitto MQTT Broker Add-on](https://www.home-assistant.io/docs/mqtt/broker/). This will serve as a trigger for notifications in Home Assistant. This could be done with the [Folder Watcher integration](https://www.home-assistant.io/integrations/folder_watcher/)  within Home Assistant, but I was unable to get that working properly.
+**Goal**: After picture taken by the Pi cam on the Pi 3A (Doorbell), send a simple message to Home Assistant server running the [Mosquitto MQTT Broker Add-on](https://www.home-assistant.io/docs/mqtt/broker/). This will serve as a trigger for notifications in Home Assistant. This could be done with the [Folder Watcher integration](https://www.home-assistant.io/integrations/folder_watcher/)  within Home Assistant, but I was [unable to get that working properly](https://community.home-assistant.io/t/folder-watcher-watchdog-component/45334/87?u=kr_noob).
 
 ### Install Paho-MQTT and Testing Connection to HA:
 - On the Pi 3A device, install [paho-mqtt](https://pypi.org/project/paho-mqtt/) via the ```pip install paho-mqtt``` command
