@@ -72,7 +72,7 @@ Allow for doorbell press to:
 - ~~Tensorflow ([Tensorflow HA Integration](https://www.home-assistant.io/integrations/tensorflow/) | [Install Page](https://www.tensorflow.org/install/))~~
 - ~~Tensorflow Lite~~
 - ~~DOODS ([DOODS HA Integration](https://www.home-assistant.io/integrations/doods/) | [DOODS in GIT](https://github.com/snowzach/doods))~~
-- Local [Deepstack server](https://python.deepstack.cc/) paired with [@robmarkcole's Deepstack integration](https://github.com/robmarkcole/HASS-Deepstack-object)
+- Local [Deepstack server](https://docs.deepstack.cc/) paired with @robmarkcole's [Deepstack integration](https://github.com/robmarkcole/HASS-Deepstack-object)
 
 
 
